@@ -16,24 +16,40 @@ console.log(age)
 let price = (chilometer * 0.21)
 console.log(price)
 
+// - stampare il prezzo del biglietto nella pagina
+//   - recuperare dal DOM un elemento in base all'id
+const priceDomElement = document.getElementById('price')
+
+
 //   - SE l'utente è minorenne applicare sconto di 20%
 if (age < 18) { 
     // - dichiare una variabile ed applicare l'sconto in base all'utente
     let miner = (price * (20 / 100))
     console.log(miner)
+    
     // - dichiare una variabile e sottrare dal prezzo base la somma dello sconto
     let minerPrice = (price - miner)
     console.log(minerPrice)
-} else if (age > 65) {
+    // - modificare l'innerHTML con il prezzo del biglietto
+    priceDomElement.innerHTML = minerPrice
 
 //   - ALTRIMENTI SE utente è over 65 anni applicare sconto di 40%
+} else if (age > 65) {
+
     // - dichiare una variabile ed applicare l'sconto in base all'utente
     let overAge = (price * (40 / 100))
     console.log(overAge)
     // - dichiare una variabile e sottrare dal prezzo base la somma dello sconto
     let overAgePrice = (price - overAge)
     console.log(overAgePrice)
+
+    const priceDomElement = document.getElementById('price')
+    // - modificare l'innerHTML con il prezzo del biglietto
+    priceDomElement.innerHTML = overAgePrice
+
+
+} else {
+    // - modificare l'innerHTML con il prezzo del biglietto
+    priceDomElement.innerHTML = price
 }
-// - stampare il prezzo del biglietto nella pagina
-//   - recuperare dal DOM un elemento in base all'id
-//   - modificare l'innerHTML con il prezzo del biglietto
+
